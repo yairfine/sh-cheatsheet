@@ -1,4 +1,7 @@
+clang++ `pkg-config --cflags --libs libusb-1.0` example/main.cpp -o build/main  # compile with libraries found by pkg-config
 defaults write -app SourceTree AppleWindowTabbingMode -string "always"  # Open repos in sourcetree as tabs within a single window
+echo $PKG_CONFIG_PATH  # print pkg-config search pathes
+export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebew)
 ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<.png out file>"  # Convert .raw image to .png image. Where <WxH> is the image dimensions (i.e 64x64) and the <pix_fmt> is the raw pixel format.
 ffmpeg -pix_fmts  # List all image formats supported in ffmpeg
 git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # Create a release package. example package name: v1.6.2-rc1-20-g8c5b85c.tar.gz
@@ -10,4 +13,6 @@ git prune # deletes unreachable objects (dangaling in database)
 git prune-packed # deletes objects that already have a packed copy
 pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform win_amd64 --python-version 38 --implementation cp  # download python pacakges to local dir, only binaries (no need local build), for specified arch and platform
 pip3 install -r <path to my_downloads\requirements.txt> --no-index --find-links <path to my_downloads>  # install python packages from local dir
+pkg-config --list-all  # list all libraries found by pkg-config
+pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search pathes
 xargs -n 1 -I {} git clone --recurse-submodules --shallow-submodules {} < /tmp/repos_urls.txt  # clone each url in file
