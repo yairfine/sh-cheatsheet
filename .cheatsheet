@@ -8,4 +8,6 @@ git gc # repacks loose objects into packs
 git lfs prune  # clean git-lfs local cache
 git prune # deletes unreachable objects (dangaling in database)
 git prune-packed # deletes objects that already have a packed copy
+pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform win_amd64 --python-version 38 --implementation cp  # download python pacakges to local dir, only binaries (no need local build), for specified arch and platform
+pip3 install -r <path to my_downloads\requirements.txt> --no-index --find-links <path to my_downloads>  # install python packages from local dir
 xargs -n 1 -I {} git clone --recurse-submodules --shallow-submodules {} < /tmp/repos_urls.txt  # clone each url in file
