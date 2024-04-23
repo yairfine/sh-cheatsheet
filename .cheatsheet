@@ -1,5 +1,7 @@
 clang++ `pkg-config --cflags --libs libusb-1.0` example/main.cpp -o build/main  # compile with libraries found by pkg-config
 defaults write -app SourceTree AppleWindowTabbingMode -string "always"  # Open repos in sourcetree as tabs within a single window
+defaults write -g ApplePressAndHoldEnabled -bool false  # Allow keyboard hold and repeat key
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # Trackpad app exposé swipe down three fingers
 echo $PKG_CONFIG_PATH  # print pkg-config search pathes
 export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebew)
 ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<.png out file>"  # Convert .raw image to .png image. Where <WxH> is the image dimensions (i.e 64x64) and the <pix_fmt> is the raw pixel format.
