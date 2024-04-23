@@ -20,4 +20,6 @@ pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform 
 pip3 install -r <path to my_downloads\requirements.txt> --no-index --find-links <path to my_downloads>  # install python packages from local dir
 pkg-config --list-all  # list all libraries found by pkg-config
 pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search pathes
+sudo -v  # Ask for the administrator password upfront
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &  # Keep-alive sudo: update existing `sudo` time stamp until the script has finished. This line should be after `sudo -v` inside a shell script
 xargs -n 1 -I {} git clone --recurse-submodules --shallow-submodules {} < /tmp/repos_urls.txt  # clone each url in file
