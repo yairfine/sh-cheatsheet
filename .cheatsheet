@@ -13,6 +13,7 @@ git config user.name <new name> && git config user.email <new email> && git reba
 git fetch origin --prune # delete remote-tracking branches that no longer exists on remote
 git gc # repacks loose objects into packs
 git lfs prune  # clean git-lfs local cache
+git log --oneline --show-signature  BASE..FEATURE  # verify signatures of range of commits
 git prune # deletes unreachable objects (dangaling in database)
 git prune-packed # deletes objects that already have a packed copy
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
