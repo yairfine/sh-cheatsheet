@@ -30,6 +30,7 @@ git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with m
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
 ioreg -p IOUSB  # Print the USB tree
 ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*'  # Print only the names of devices in the USB tree
+lldb -c <core-dump> -f <symbol-files>  # Load core dump file into lldb
 ls -F1 | xargs -n 1 -I {} git -C {} pull  # pull all for every git directory in this current directory
 pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform win_amd64 --python-version 38 --implementation cp  # download python packages to local dir, only binaries (no need local build), for specified arch and platform
 pip3 install -r <path to my_downloads/requirements.txt> --no-index --find-links <path to my_downloads>  # install python packages from local dir
