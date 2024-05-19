@@ -7,6 +7,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false  # Allow keyboard hold an
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # Trackpad app exposé swipe down three fingers
 di --mixed -c 5 -s <addr>  # lldb disassemble address
 di -ms <addr>  # lldb disassemble address
+echo ".vscode\ntmp.*\n" >> .git/info/exclude  # add .vscode and tmp.* files into git local exclude
 echo $#  # is the number of arguments in $@
 echo $$  # is the PID of the current process
 echo $*  # is the arguments passed to the current process as one string
