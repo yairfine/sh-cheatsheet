@@ -1,4 +1,5 @@
 NEW_HOSTNAME=Yairs-Macbook-Pro && scutil --set HostName ${NEW_HOSTNAME}.local && scutil --set LocalHostName ${NEW_HOSTNAME} && scutil --set ComputerName ${NEW_HOSTNAME}  # change mac hostname (in terminal prompt)
+cat .cheatsheet | sort -s -b > ./tmp.txt && cat ./tmp.txt > .cheatsheet  # sort .cheatsheet file inplace
 clang++ `pkg-config --cflags --libs libusb-1.0` example/main.cpp -o build/main  # compile with libraries found by pkg-config
 dd if=/dev/urandom of=<output file> bs=1 seek=4 count=8 conv=notrunc  # destory file with writing random chars into it. write 8 blocks of size 1 byte, in offset 4 in the output file. without truncate the output file upon write (preserve reset of file)
 defaults write -app SourceTree AppleWindowTabbingMode -string "always"  # Open repos in sourcetree as tabs within a single window
