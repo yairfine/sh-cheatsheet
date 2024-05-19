@@ -1,7 +1,7 @@
 NEW_HOSTNAME=Yairs-Macbook-Pro && scutil --set HostName ${NEW_HOSTNAME}.local && scutil --set LocalHostName ${NEW_HOSTNAME} && scutil --set ComputerName ${NEW_HOSTNAME}  # change mac hostname (in terminal prompt)
 cat .cheatsheet | sort -s -b > ./tmp.txt && cat ./tmp.txt > .cheatsheet  # sort .cheatsheet file inplace
 clang++ `pkg-config --cflags --libs libusb-1.0` example/main.cpp -o build/main  # compile with libraries found by pkg-config
-dd if=/dev/urandom of=<output file> bs=1 seek=4 count=8 conv=notrunc  # destory file with writing random chars into it. write 8 blocks of size 1 byte, in offset 4 in the output file. without truncate the output file upon write (preserve reset of file)
+dd if=/dev/urandom of=<output file> bs=1 seek=4 count=8 conv=notrunc  # destroy file with writing random chars into it. write 8 blocks of size 1 byte, in offset 4 in the output file. without truncate the output file upon write (preserve rest of file)
 defaults write -app SourceTree AppleWindowTabbingMode -string "always"  # Open repos in sourcetree as tabs within a single window
 defaults write -g ApplePressAndHoldEnabled -bool false  # Allow keyboard hold and repeat key
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # Trackpad app exposé swipe down three fingers
@@ -13,8 +13,8 @@ echo $*  # is the arguments passed to the current process as one string
 echo $0  # is the process/script name
 echo $?  # is the return code of the last executed command
 echo $@  # is the array of arguments passed to the current process
-echo $PKG_CONFIG_PATH  # print pkg-config search pathes
-export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebew)
+echo $PKG_CONFIG_PATH  # print pkg-config search paths
+export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebrew)
 ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<.png out file>"  # Convert .raw image to .png image. Where <WxH> is the image dimensions (i.e 64x64) and the <pix_fmt> is the raw pixel format.
 ffmpeg -pix_fmts  # List all image formats supported in ffmpeg
 git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # Create a release package. example package name: v1.6.2-rc1-20-g8c5b85c.tar.gz
@@ -23,17 +23,17 @@ git fetch origin --prune # delete remote-tracking branches that no longer exists
 git gc # repacks loose objects into packs
 git lfs prune  # clean git-lfs local cache
 git log --oneline --show-signature  BASE..FEATURE  # verify signatures of range of commits
-git prune # deletes unreachable objects (dangaling in database)
+git prune # deletes unreachable objects (dangling in database)
 git prune-packed # deletes objects that already have a packed copy
 git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with merge history, auto squash fixups and update refs
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
 ioreg -p IOUSB  # Print the USB tree
 ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*'  # Print only the names of devices in the USB tree
 ls -F1 | xargs -n 1 -I {} git -C {} pull  # pull all for every git directory in this current directory
-pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform win_amd64 --python-version 38 --implementation cp  # download python pacakges to local dir, only binaries (no need local build), for specified arch and platform
+pip3 download -r requirements.txt --no-cache-dir --only-binary=:all: --platform win_amd64 --python-version 38 --implementation cp  # download python packages to local dir, only binaries (no need local build), for specified arch and platform
 pip3 install -r <path to my_downloads/requirements.txt> --no-index --find-links <path to my_downloads>  # install python packages from local dir
 pkg-config --list-all  # list all libraries found by pkg-config
-pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search pathes
+pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search paths
 plutil -p <plist file>  # Print a plist as a json like representation
 sudo -v  # Ask for the administrator password upfront
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &  # Keep-alive sudo: update existing `sudo` time stamp until the script has finished. This line should be after `sudo -v` inside a shell script
