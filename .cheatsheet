@@ -18,6 +18,8 @@ echo $@  # is the array of arguments passed to the current process
 echo $PKG_CONFIG_PATH  # print pkg-config search paths
 export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebrew)
 ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<.png out file>"  # Convert .raw image to .png image. Where <WxH> is the image dimensions (i.e 64x64) and the <pix_fmt> is the raw pixel format.
+ffmpeg -i input.mov -q:v 0 output.mp4  # convert .mov file to .mp4 WITH re-encoding
+ffmpeg -i input.mov -qscale 0 output.mp4  # convert .mov file to .mp4 WITHOUT re-encoding
 ffmpeg -pix_fmts  # List all image formats supported in ffmpeg
 git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # Create a release package. example package name: v1.6.2-rc1-20-g8c5b85c.tar.gz
 git config user.name <new name> && git config user.email <new email> && git rebase --rebase-merges ([--root]|<commit>) --exec "git commit --amend --no-edit --reset-author"  # change author name and email of commit(s)
