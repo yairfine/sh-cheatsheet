@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Redirect output to stderr.
+exec 1>&2
+
+git show :.cheatsheet | sort -s -b > cheatsheet-sorted.txt
+git diff -u :.cheatsheet cheatsheet-sorted.txt > sort.patch
+sed -i '' 's/cheatsheet-sorted.txt/.cheatsheet/' sort.patch
+git apply --cached sort.patch
+git apply sort.patch
+rm cheatsheet-sorted.txt sort.patch
+
+exit 0
