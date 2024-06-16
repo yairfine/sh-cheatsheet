@@ -29,6 +29,7 @@ git lfs prune  # clean git-lfs local cache
 git log --oneline --show-signature  BASE..FEATURE  # verify signatures of range of commits
 git prune # deletes unreachable objects (dangling in database)
 git prune-packed # deletes objects that already have a packed copy
+git push --delete origin <tag-name>  # delete tag on remote
 git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with merge history, auto squash fixups and update refs
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
 ioreg -p IOUSB  # Print the USB tree
