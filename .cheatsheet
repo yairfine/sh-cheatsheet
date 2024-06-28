@@ -21,6 +21,7 @@ ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<
 ffmpeg -i input.mov -q:v 0 output.mp4  # convert .mov file to .mp4 WITH re-encoding
 ffmpeg -i input.mov -qscale 0 output.mp4  # convert .mov file to .mp4 WITHOUT re-encoding
 ffmpeg -pix_fmts  # List all image formats supported in ffmpeg
+find . -iname "*.mov" -exec ffmpeg -i $(basename {}) -q:v 0 $(basename {} .MOV).mp4 \;  # convert all .MOV files in dir to .mp4
 git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # Create a release package. example package name: v1.6.2-rc1-20-g8c5b85c.tar.gz
 git config user.name <new name> && git config user.email <new email> && git -c rebase.instructionFormat='%s%nexec GIT_COMMITTER_DATE="%cD" GIT_AUTHOR_DATE="%aD" git commit --amend --no-edit --reset-author' rebase --no-ff ([--root]|<commit>)  # change author name and email of commit(s)
 git fetch origin --prune # delete remote-tracking branches that no longer exists on remote
