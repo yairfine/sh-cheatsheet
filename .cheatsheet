@@ -23,6 +23,7 @@ ffmpeg -i input.mov -qscale 0 output.mp4  # convert .mov file to .mp4 WITHOUT re
 ffmpeg -pix_fmts  # List all image formats supported in ffmpeg
 find $(dirname "<file>") -type f -name "*.<suffix>" | xargs wc -l | grep -e "1 *.<suffix>" | tr '\t' ' ' | cut -d' ' -f9 | xargs cat >> "<result file>"  # aggregate all files ending with `.suffix` that contains only one line (i.e git refs)
 find . -iname "*.mov" -exec ffmpeg -i $(basename {}) -q:v 0 $(basename {} .MOV).mp4 \;  # convert all .MOV files in dir to .mp4
+git archive --format=tar.gz --prefix=project-1.4.0/ -o `git describe v1.4.0`.tar.gz v1.4.0 # create an archive for version 1.4.0 using the builin tar.gz handling and output to file instead of stdout. Also prefix eveything in the archive with the specified prefix
 git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # Create a release package. example package name: v1.6.2-rc1-20-g8c5b85c.tar.gz
 git config user.name <new name> && git config user.email <new email> && git -c rebase.instructionFormat='%s%nexec GIT_COMMITTER_DATE="%cD" GIT_AUTHOR_DATE="%aD" git commit --amend --no-edit --reset-author' rebase --no-ff ([--root]|<commit>)  # change author name and email of commit(s)
 git fetch --unshallow  # convert a Git shallow clone to a full clone
