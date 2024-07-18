@@ -34,6 +34,7 @@ git prune # deletes unreachable objects (dangling in database)
 git prune-packed # deletes objects that already have a packed copy
 git push --delete origin <ref-name>  # delete ref (tag/branch) on remote
 git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with merge history, auto squash fixups and update refs
+git symbolic-ref refs/heads/m refs/heads/master  # git create symbolic ref to main branch
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
 ioreg -p IOUSB  # Print the USB tree
 ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*'  # Print only the names of devices in the USB tree
