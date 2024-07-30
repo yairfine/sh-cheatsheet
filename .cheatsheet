@@ -52,6 +52,7 @@ ssh-keygen -t ed25519 -b 4096 -C "<email>" -f ~/.ssh/<filename>   # generate ssh
 sudo -v  # Ask for the administrator password upfront
 system_profiler -listDataTypes  # print all available dataType to be printed
 system_profiler [dataType] # print information about system HWs
+tar -xvf my_archive.tar.gz  -C some_custom_folder_name  # extract an archive to custom folder
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &  # Keep-alive sudo: update existing `sudo` time stamp until the script has finished. This line should be after `sudo -v` inside a shell script
 xargs -n 1 -I {} git clone --recurse-submodules --shallow-submodules {} < /tmp/repos_urls.txt  # clone each url in file
 xcodebuild -sdk iphoneos -version ProductBuildVersion  # print the ios sdk version installed
