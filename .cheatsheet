@@ -9,6 +9,7 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true  # Trackpad
 di --mixed -c 5 -s <addr>  # lldb disassemble address
 di -ms <addr>  # lldb disassemble address
 echo ".vscode\ntmp\ncompiple_commands.json\n.cache" >> .git/info/exclude  # add local files into git local exclude
+echo "A A B C C C" | xargs -n 1 -I {} | uniq  # print unique tokens line by line
 echo $#  # is the number of arguments in $@
 echo $$  # is the PID of the current process
 echo $*  # is the arguments passed to the current process as one string
