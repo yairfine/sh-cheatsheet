@@ -10,6 +10,7 @@ di --mixed -c 5 -s <addr>  # lldb disassemble address
 di -ms <addr>  # lldb disassemble address
 echo ".vscode\ntmp\ncompiple_commands.json\n.cache" >> .git/info/exclude  # add local files into git local exclude
 echo "A A B C C C" | xargs -n 1 -I {} | uniq  # print unique tokens line by line
+echo "[" > compile_commands.json && find . -path "*compile_cmd.json"  -exec cat {} \; >> compile_commands.json && echo "]" >> compile_commands.json;  # aggregate compile commands files to single compilation database compile_commands.json
 echo $#  # is the number of arguments in $@
 echo $$  # is the PID of the current process
 echo $*  # is the arguments passed to the current process as one string
