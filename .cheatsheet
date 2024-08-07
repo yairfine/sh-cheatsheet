@@ -53,6 +53,7 @@ pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search
 plutil -p <plist file>  # Print a plist as a json like representation
 ssh-keygen -t ed25519 -b 4096 -C "<email>" -f ~/.ssh/<filename>   # generate ssh-keys to specific given <filename>
 sudo -v  # Ask for the administrator password upfront
+sudo install -v -C -m 755 ~/Downloads/my-exe /usr/local/bin  # install downloaded binary to bin bath with exec permissions
 system_profiler -listDataTypes  # print all available dataType to be printed
 system_profiler [dataType] # print information about system HWs
 tar -xvf my_archive.tar.gz  -C some_custom_folder_name  # extract an archive to custom folder
