@@ -39,6 +39,7 @@ git rebase --onto master develop topic  # rebase feature branch ontop of master,
 git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with merge history, auto squash fixups and update refs
 git symbolic-ref -m 'short alias h to HEAD' h HEAD
 git symbolic-ref refs/heads/m refs/heads/master  # git create symbolic ref to main branch
+history -p  # Clear terminal history. In bash and other shells, the command is history -c
 ioreg -alw0 -p IOUSB  # Print the ioreg data as xml tree with more data
 ioreg -p IOUSB  # Print the USB tree
 ioreg -p IOUSB -w0 | sed 's/[^o]*o //; s/@.*$//' | grep -v '^Root.*'  # Print only the names of devices in the USB tree
