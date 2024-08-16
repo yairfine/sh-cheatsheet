@@ -18,6 +18,7 @@ echo $0  # is the process/script name
 echo $?  # is the return code of the last executed command
 echo $@  # is the array of arguments passed to the current process
 echo $PKG_CONFIG_PATH  # print pkg-config search paths
+echo 8 > /proc/sys/kernel/printk  # Linux change the current console_loglevel to print all messages to the console
 export PKG_CONFIG_PATH=/opt/brew/lib/pkgconfig:/opt/brew/share/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/pkgconfig:/opt/brew/Library/Homebrew/os/mac/pkgconfig/11:/Users/yair/.local/lib/pkgconfig  # extend pkg-config search path (include packages installed with homebrew)
 ffmpeg -f rawvideo -pixel_format <pix_fmt> -video_size <WxH> -i "<.raw file>" "<.png out file>"  # Convert .raw image to .png image. Where <WxH> is the image dimensions (i.e 64x64) and the <pix_fmt> is the raw pixel format.
 ffmpeg -i input.mov -q:v 0 output.mp4  # convert .mov file to .mp4 WITH re-encoding
