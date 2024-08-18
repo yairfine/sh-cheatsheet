@@ -31,6 +31,7 @@ git archive master --prefix='project/' | gzip > `git describe master`.tar.gz  # 
 git config user.name <new name> && git config user.email <new email> && git -c rebase.instructionFormat='%s%nexec GIT_COMMITTER_DATE="%cD" GIT_AUTHOR_DATE="%aD" git commit --amend --no-edit --reset-author' rebase --no-ff ([--root]|<commit>)  # change author name and email of commit(s)
 git fetch --unshallow  # convert a Git shallow clone to a full clone
 git fetch origin --prune # delete remote-tracking branches that no longer exists on remote
+git for-each-ref --format=' %(authorname) %(objectname:short) %(refname:short)' --sort=-committerdate --sort=authorname | grep -i -e "$(git config user.name)"  # list all git branches of the current author sort by time
 git gc # repacks loose objects into packs
 git lfs prune  # clean git-lfs local cache
 git log --oneline --show-signature  BASE..FEATURE  # verify signatures of range of commits
