@@ -55,6 +55,7 @@ pkg-config --list-all  # list all libraries found by pkg-config
 pkg-config --variable pc_path pkg-config  # print pkg-config bin path and search paths
 plutil -p <plist file>  # Print a plist as a json like representation
 ssh-keygen -t ed25519 -b 4096 -C "<email>" -f ~/.ssh/<filename>   # generate ssh-keys to specific given <filename>
+stat -f"%z %N" *.bin  # print all .bin files sizes in bytes
 sudo -v  # Ask for the administrator password upfront
 sudo install -v -C -m 755 ~/Downloads/my-exe /usr/local/bin  # install downloaded binary to bin bath with exec permissions
 system_profiler -listDataTypes  # print all available dataType to be printed
