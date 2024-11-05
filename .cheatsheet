@@ -1,5 +1,6 @@
 "scm.showHistoryGraph": false  # add to vscode to disable git graph in scm table
 NEW_HOSTNAME=Yairs-Macbook-Pro && scutil --set HostName ${NEW_HOSTNAME}.local && scutil --set LocalHostName ${NEW_HOSTNAME} && scutil --set ComputerName ${NEW_HOSTNAME}  # change mac hostname (in terminal prompt)
+cat -n file1 > file2  # add line numbers to each line in file
 cat .cheatsheet | sort -s -b > ./tmp.txt && cat ./tmp.txt > .cheatsheet  # sort .cheatsheet file inplace
 clang++ `pkg-config --cflags --libs libusb-1.0` example/main.cpp -o build/main  # compile with libraries found by pkg-config
 date -Iminutes  # print date time and GMT info to stdout
