@@ -44,6 +44,7 @@ git prune-packed # deletes objects that already have a packed copy
 git push --delete origin <ref-name>  # delete ref (tag/branch) on remote
 git rebase --onto master develop topic  # rebase feature branch ontop of master, excluding all commits from develop (i.e feature is based on develop which is based on master)
 git rebase --rebase-merges --autosquash --update-refs  NEW_BASE  # rebase with merge history, auto squash fixups and update refs
+git rebase --strategy=resolve master  # rebase with 'resolve' strategy for handling file copies done with git-copy script
 git symbolic-ref -m 'short alias h to HEAD' h HEAD
 git symbolic-ref refs/heads/m refs/heads/master  # git create symbolic ref to main branch
 history -p  # Clear terminal history. In bash and other shells, the command is history -c
